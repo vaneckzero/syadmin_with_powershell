@@ -1,4 +1,4 @@
-Delivered-To: lwaggoner@westan.net
+Delivered-To: user@targetdomain.net
 Received: by 2002:a05:6a20:4283:b0:5b:8b37:2111 with SMTP id
  o3csp3210344pzj; Mon, 18 Oct 2021 08:00:28 -0700 (PDT)
 X-Received: by 2002:a37:444d:: with SMTP id
@@ -30,7 +30,7 @@ ARC-Authentication-Results: i=1; mx.google.com;
 Return-Path: <uiosartasa34@gmail.com>
 Received: from mail-sor-f41.google.com (mail-sor-f41.google.com.
  [209.85.220.41]) by mx.google.com with SMTPS id
- i19sor4963197qko.173.2021.10.18.08.00.27 for <lwaggoner@westan.net>
+ i19sor4963197qko.173.2021.10.18.08.00.27 for <user@targetdomain.net>
  (Google Transport Security); Mon, 18 Oct 2021 08:00:28 -0700 (PDT)
 Received-SPF: pass (google.com: domain of uiosartasa34@gmail.com designates
  209.85.220.41 as permitted sender) client-ip=209.85.220.41;
@@ -70,7 +70,7 @@ X-Received: by 2002:a05:620a:2551:: with SMTP id
 Return-Path: <uiosartasa34@gmail.com>
 Received: from EC2AMAZ-KR58RVF (ec2-18-205-188-112.compute-1.amazonaws.com.
  [18.205.188.112]) by smtp.gmail.com with ESMTPSA id
- ay32sm3759490qkb.66.2021.10.18.08.00.27 for <lwaggoner@westan.net>
+ ay32sm3759490qkb.66.2021.10.18.08.00.27 for <user@targetdomain.net>
  (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
  Mon, 18 Oct 2021 08:00:27 -0700 (PDT)
 X-Google-Original-Date: 18 Oct 2021 15:00:27 +0000
@@ -80,7 +80,7 @@ X-MSMail-Priority: Normal
 Thread-Index: AQKxV5njhpnCYBuuqI12dGDeX0fQow==
 Message-ID: <616d8c0b.1c69fb81.f354d.6dd6@mx.google.com>
 From: "Karen Charles" <uiosartasa34@gmail.com>
-To: "lwaggoner@westan.net" <lwaggoner@westan.net>
+To: "user@targetdomain.net" <user@targetdomain.net>
 Subject: Service ID: RGDT-2416-M7_2772
 Date: Mon, 18 Oct 2021 10:00:27 -0500
 MIME-Version: 1.0
@@ -99,7 +99,7 @@ Content-Description: Message text
 N O R T O N
 
 
-Dear lwaggoner@westan.net,
+Dear user@targetdomain.net,
 
 From:=09 Norton Security Team=09
 Date:=09 Oct. 18, 2021=09
@@ -150,7 +150,7 @@ Content-Description: HTML text
 
 <H2 style=3D"TEXT-ALIGN: left; PADDING-LEFT: 120px"><SPAN style=3D"COLOR:=
  #ff6600">N O R T O N</SPAN></H2>
-<P>Dear lwaggoner@westan.net,</P>
+<P>Dear user@targetdomain.net,</P>
 <TABLE style=3D"HEIGHT: 46px; WIDTH: 311px">
 <TBODY>
 <TR style=3D"HEIGHT: 13px">
