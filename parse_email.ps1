@@ -9,4 +9,4 @@ write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Sender---
 Get-Content $email | Where-Object {$_ -like ‘*sender*’}
 
 #get iocs (urls, filenames, hashes, etc) and enrich with VT, etc
-#just read file once and then parse variable
+#just read file once and then parse variables
