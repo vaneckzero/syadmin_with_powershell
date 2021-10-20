@@ -20,6 +20,5 @@ write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Message I
     $email | select-string ‘message_boundary’ -Context 0,4
     write-host "`n"
 
-# should read file once and then parse variables
 # get iocs (urls, filenames, hashes, etc) and enrich with VT, etc https://developers.virustotal.com/reference#files-scan
 # help comment block with parameters, etc
