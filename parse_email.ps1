@@ -17,6 +17,8 @@ write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Received-
 
 write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Sender----------"
     $email | Where-Object {$_ -like ‘*sender*’}
+    $senders = $email | Where-Object {$_ -like ‘*sender*’}
+    $sender_ioc = $senders[0].Split(' ')[1]
     write-host "`n"
 
 write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Message Content----------"
