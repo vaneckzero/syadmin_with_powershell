@@ -11,6 +11,10 @@ write-host -BackgroundColor green -foregroundcolor DarkBlue "----------From:----
     $email | Where-Object {$_ -like ‘From:*’}
     write-host "`n"
 
+    write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Subject:----------"
+    $email | Where-Object {$_ -like ‘Subject:*’}
+    write-host "`n"
+
 write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Received----------"
     $email | Where-Object {$_ -like ‘Received:*’}
     write-host "`n"
