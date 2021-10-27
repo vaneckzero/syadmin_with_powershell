@@ -3,6 +3,10 @@ write-host -BackgroundColor White -ForegroundColor DarkGreen "2021 Nick Hall @va
 
 $email = get-content $args[0]
 
+if (!$email){
+     write-host "Usage: parse_email.ps1 emlfile"
+ }
+else {
 write-host -BackgroundColor green -foregroundcolor DarkBlue "----------To:----------"
     $email | Where-Object {$_ -like ‘To:*’}
 
@@ -22,6 +26,6 @@ write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Sender---
 
 write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Message Content----------"
     $email | select-string ‘Content-type: ’ -Context 0,3
-
+ }
 # get iocs (urls, filenames, hashes, etc) and enrich with VT, etc https://developers.virustotal.com/reference#files-scan
 # help comment block with parameters, etc
