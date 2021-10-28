@@ -1,5 +1,5 @@
 write-host -BackgroundColor White -ForegroundColor DarkGreen "parse_email.ps1"
-write-host -BackgroundColor White -ForegroundColor DarkGreen "2021 Nick Hall @vaneckzero`n"
+write-host -BackgroundColor White -ForegroundColor DarkGreen "Nick Hall @vaneckzero (2021)`n"
 
 $email = get-content $args[0]
 
