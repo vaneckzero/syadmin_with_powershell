@@ -25,7 +25,6 @@ write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Sender---
     $sender_ioc = $senders[0].Split(' ')[1]
 
 write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Message Content----------"
-<<<<<<< HEAD
     #$email | select-string ‘Content-type: ’ -Context 0,3
     $email | Where-Object {$_ -like ‘*Content-type: *’}
 
@@ -34,10 +33,6 @@ write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Links----
     $email | select-string ‘href’ -Context 0,3
     #$email | Where-Object {$_ -like ‘*img src*’}
     #$email | Where-Object {$_ -like ‘*href*’}
-
-=======
-    $email | select-string ‘Content-type: ’ -Context 0,3
- }
->>>>>>> f0feced70418540cb645039b84161df59859b027
+}
 # get iocs (urls, filenames, hashes, etc) and enrich with VT, etc https://developers.virustotal.com/reference#files-scan
 # help comment block with parameters, etc
