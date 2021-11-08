@@ -1,5 +1,6 @@
 $censys_id = ""
 $censys_key = ""
+$virustotal_key = ""
 
 write-host -BackgroundColor White -ForegroundColor DarkGreen "parse_email.ps1"
 write-host -BackgroundColor White -ForegroundColor DarkGreen "Nick Hall @vaneckzero (2021)`n"
@@ -42,11 +43,21 @@ write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Censys Se
         write-host "Censys API ID and Key not found. See https://censys.io/api for more info"
     }
     else {
-        $ipintel = curl --silent https://censys.io/api/v1/view/ipv4/$sender_ioc -u ${censys_id}:${censys_key} | ConvertFrom-Json
+        $censys_ipintel = curl --silent https://censys.io/api/v1/view/ipv4/$sender_ioc -u ${censys_id}:${censys_key} | ConvertFrom-Json
         #write-host "https://censys.io/api/v1/view/ipv4/$sender_ioc -u ${censys_id}:${censys_key}"
-            write-host "Sender Location: " $ipintel.location.country $ipintel.location.province 
-            write-host "AS Info: " $ipintel.autonomous_system.country_code $ipintel.autonomous_system.routed_prefix
-    }        
+            write-host "Sender Location: " $censys_ipintel.location.country $censys_ipintel.location.province 
+            write-host "AS Info: " $censys_ipintel.autonomous_system.country_code $censys_ipintel.autonomous_system.routed_prefix
+    }
+
+    write-host -BackgroundColor green -foregroundcolor DarkBlue "----------VirusTotal Sender Details----------"
+    if ($virustotal_key -eq ""){
+        write-host "VirusTotal API Key not found. See https://developers.virustotal.com/reference#overview for more info"
+    }
+    else {
+        $virustotal_ipintel = curl --silent -H "X-Apikey: $virustotal_key" https://www.virustotal.com/api/v3/ip_addresses/$sender_ioc | ConvertFrom-Json
+        #write-host "curl --silent -H 'X-Apikey: $virustotal_key' https://www.virustotal.com/api/v3/ip_addresses/$sender_ioc"
+        $virustotal_ipintel.data.attributes.last_analysis_stats
+    }
 }
 
 # get iocs (urls, filenames, hashes, etc) and enrich with VT, etc https://developers.virustotal.com/reference#files-scan
