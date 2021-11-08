@@ -38,7 +38,7 @@ write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Links----
     #$email | Where-Object {$_ -like ‘*img src*’}
     #$email | Where-Object {$_ -like ‘*href*’}
 
-write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Censys Sender Details----------"
+write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Censys Sender ($sender_ioc) Details----------"
     if ($censys_id -eq ""){
         write-host "Censys API ID and Key not found. See https://censys.io/api for more info"
     }
@@ -49,7 +49,7 @@ write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Censys Se
             write-host "AS Info: " $censys_ipintel.autonomous_system.country_code $censys_ipintel.autonomous_system.routed_prefix
     }
 
-    write-host -BackgroundColor green -foregroundcolor DarkBlue "----------VirusTotal Sender Details----------"
+    write-host -BackgroundColor green -foregroundcolor DarkBlue "----------VirusTotal Sender ($sender_ioc) Details----------"
     if ($virustotal_key -eq ""){
         write-host "VirusTotal API Key not found. See https://developers.virustotal.com/reference#overview for more info"
     }
