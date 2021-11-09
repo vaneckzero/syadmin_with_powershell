@@ -2,6 +2,8 @@ $censys_id = ""
 $censys_key = ""
 $virustotal_key = ""
 
+# replace curl (not an alias) with invoke-webrequest 
+
 write-host -BackgroundColor White -ForegroundColor DarkGreen "parse_email.ps1"
 write-host -BackgroundColor White -ForegroundColor DarkGreen "Nick Hall @vaneckzero (2021)`n"
 
@@ -60,5 +62,3 @@ write-host -BackgroundColor green -foregroundcolor DarkBlue "----------Censys Se
     }
 }
 
-# get iocs (urls, filenames, hashes, etc) and enrich with VT, etc https://developers.virustotal.com/reference#files-scan
-# help comment block with parameters, etc
