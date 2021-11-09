@@ -1,8 +1,11 @@
-$censys_id = ""
-$censys_key = ""
-$virustotal_key = ""
+# places these items in parse_email_includes.ps1 in the same dir
+# $censys_id = ""
+# $censys_key = ""
+# $virustotal_key = ""
 
 # replace curl (not an alias) with invoke-webrequest 
+
+. .\parse_email_includes.ps1
 
 write-host -BackgroundColor White -ForegroundColor DarkGreen "parse_email.ps1"
 write-host -BackgroundColor White -ForegroundColor DarkGreen "Nick Hall @vaneckzero (2021)`n"
