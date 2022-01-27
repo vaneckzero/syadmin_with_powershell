@@ -30,6 +30,7 @@ $pf_uc_wan = ssh $pf_user@$pf_uc "ifconfig ix3 | grep 'netmask' | cut -d ' ' -f 
 #$pf_ucip_wan = ssh $pf_user@$pf_ucip "ifconfig mvneta2 | grep 'netmask' | cut -d ' ' -f 2"
 
 write-host "uc wan ip is: $pf_uc_wan"
+$pf_uc_wan
 #write-output "martin wan ip is: $pf_martin_wan"
 #write-output "dresden wan ip is: $pf_dresden_wan"
 #write-output "mckenzie wan ip is: $pf_mckenzie_wan"
