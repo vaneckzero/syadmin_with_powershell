@@ -3,8 +3,8 @@
 ##############################################
 
 #find msi guids
-$sc19guid = (get-wmiobject Win32_Product | where Name -like "*screenconnect*" | where LocalPackage -notlike "*c:\windows*").IdentifyingNumber
-$sc21guid = (get-wmiobject Win32_Product | where Name -like "*screenconnect*" | where LocalPackage -like "*c:\windows*").IdentifyingNumber
+$sc19guid = (get-wmiobject Win32_Product | where-object Name -like "*screenconnect*" | where-object LocalPackage -notlike "*c:\windows*").IdentifyingNumber
+$sc21guid = (get-wmiobject Win32_Product | where-object Name -like "*screenconnect*" | where-object LocalPackage -like "*c:\windows*").IdentifyingNumber
 
 #uninstall both 
 msiexec.exe /x "$sc19guid" /QN /L*V "C:\sc_uninstall.log" REBOOT=R
