@@ -1,3 +1,10 @@
+#####################################
+#    addDomainToBlocklist.ps1       #
+#     vaneckzero@gmail.com          #
+#  add specified url to DNSFilter   #
+#    and Defender blocklists        #
+#####################################
+
 #retrieve url paramenter from command
 param($url)
 
