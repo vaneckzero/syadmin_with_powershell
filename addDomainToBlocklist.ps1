@@ -14,7 +14,7 @@ $auth_postParams = @{grant_type='http://auth0.com/oauth/grant-type/password-real
 $dnsfilter_authRequest = Invoke-WebRequest -Uri https://dnsfilter.auth0.com/oauth/token -Method POST -Body $auth_postParams | ConvertFrom-Json
 $dnsfilter_accessToken = $dnsfilter_authRequest.access_token
 Write-Host "DNSFilter Auth Token:" -ForegroundColor Green
-Write-Host "$dnsfilter_accessToken `n"
+Write-Host $dnsfilter_accessToken.substring(0,10)"...`n"
 
 #query DNSFilter blockslists for domain, 181610 is the hardcode policy ID we're searching for this org
 $search_headers = @{
