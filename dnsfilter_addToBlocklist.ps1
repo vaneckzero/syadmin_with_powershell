@@ -34,8 +34,10 @@ else
         'Content-Type' = 'application/json'
     }
     #verifying contents of hashtables
-    Write-Output "Post Params: " $addDomain_postParams
-    Write-Output "Add Headers: " $add_headers
-    #$dnsfilter_addDomain = Invoke-WebRequest -Uri https://api.dnsfilter.com/v1/policies/bulk/add_blocklist_domains -Method POST -Body $addDomain_postParams -Headers $add_headers | ConvertFrom-Json
-    #write-host $dnsfilter_addDomain -ForegroundColor Green
+    #Write-Output "Post Params: " ($addDomain_postParams | ConvertTo-Json)
+    #Write-Output "Add Headers: " $add_headers
+    
+    #add domain to blocklist
+    $dnsfilter_addDomain = Invoke-WebRequest -Uri https://api.dnsfilter.com/v1/policies/bulk/add_blocklist_domains -Method POST -Body ($addDomain_postParams|ConvertTo-Json) -Headers $add_headers
+    write-host $dnsfilter_addDomain -ForegroundColor Green
  }
