@@ -31,9 +31,9 @@ $search_headers = @{
 $dnsfilter_domainQuery = Invoke-WebRequest -Uri https://api.dnsfilter.com/v1/policies?include_global_policies=false -Method GET -Headers $search_headers | ConvertFrom-Json
 #$dnsfilter_domainQuery.data | Where-Object { $_.id -eq 181610 -and $_.attributes.blacklist_domains -like "fixcde.com"}
 if ($dnsfilter_domainQuery.data.attributes[1].blacklist_domains -like "$url") #attributes[1] is the second policy in our tenant which is the one I want to search
-    {write-host "domain $url found in DNSFilter blocklist" -ForegroundColor Green}
+    {write-host "Domain $url found in DNSFilter blocklist" -ForegroundColor Green}
 else 
-    {write-host "domain $url not found in DNSFilter blocklist - adding..." -ForegroundColor Red
+    {write-host "Domain $url NOT found in DNSFilter blocklist - adding..." -ForegroundColor Red
     $addDomain_postParams = @{domains="$url";policy_ids="181610"}
     $add_headers = @{
         'accept' = 'application/json'
@@ -47,4 +47,20 @@ else
     #add domain to blocklist
     $dnsfilter_addDomain = Invoke-WebRequest -Uri https://api.dnsfilter.com/v1/policies/bulk/add_blocklist_domains -Method POST -Body ($addDomain_postParams|ConvertTo-Json) -Headers $add_headers
     write-host $dnsfilter_addDomain -ForegroundColor Green
+ }
+
+ # Azure Defender for Business
+ #check for Microsoft.Graph.Beta powershell module
+ if (-not (get-installedmodule Microsoft.Graph.Beta)){
+    Write-Host "Microsoft.Graph.Beta Powershell module not found - please install using 'Install-Module Microsoft.Graph.Beta'" -ForegroundColor Red
+    exit
+ }
+
+ #connecting Powershell modeul to Microsoft Graph API with appropriate scope
+ connect-MgGraph -Scopes "ThreatIndicators.ReadWrite.OwnedBy" -NoWelcome
+ if (Get-MgBetaSecurityTiIndicator | Select-Object -Property DomainName | Select-String -Pattern "$url"){
+    write-host "Domain $url found in Defender indicators" -ForegroundColor Green
+ }
+ else {
+    write-host "Domain $url NOT found in Defender indicators - adding..." -ForegroundColor Red
  }
