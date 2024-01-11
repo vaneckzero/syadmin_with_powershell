@@ -63,4 +63,16 @@ else
  }
  else {
     write-host "Domain $url NOT found in Defender indicators - adding..." -ForegroundColor Red
+    $params = @{
+            Action = "block"
+            Confidence = 100
+            Description = "$url added by addDomainToBlocklist.ps1"
+		    DomainName = "$url"
+			ExpirationDateTime = [System.DateTime]::Parse("2040-03-01T21:43:37.5031462+00:00")
+			Severity = 3
+			ThreatType = "MaliciousURL"
+			TargetProduct = "Microsoft Windows Defender ATP"
+        }
+    #$newDefenderIndicator = New-MgBetaSecurityTiIndicator -BodyParameter $params
+    $params
  }
